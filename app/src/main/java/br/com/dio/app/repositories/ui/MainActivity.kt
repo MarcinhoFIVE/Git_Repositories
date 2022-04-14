@@ -8,10 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import br.com.dio.app.repositories.R
 import br.com.dio.app.repositories.databinding.ActivityMainBinding
+import br.com.dio.app.repositories.presentation.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit2.http.Query
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
+    private val viewModel by viewModel<MainViewModel>()
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +22,10 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        viewModel.repos.observe(this) {
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
