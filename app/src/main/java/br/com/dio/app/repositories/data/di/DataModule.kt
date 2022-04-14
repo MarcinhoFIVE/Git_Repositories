@@ -1,4 +1,4 @@
-package br.com.dio.app.repositories.data.ui
+package br.com.dio.app.repositories.data.di
 
 import android.util.Log
 import br.com.dio.app.repositories.data.repositories.RepoRepository
